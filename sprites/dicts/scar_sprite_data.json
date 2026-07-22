@@ -53,6 +53,16 @@
             "CATBITETWO",
             "SNAKETWO",
             "FOUR"
+        ],
+        [
+            "LEFTEAR",
+            "RIGHTEAR",
+            "NOTAIL",
+            "NOLEFTEAR",
+            "NORIGHTEAR",
+            "NOEAR",
+            "HALFTAIL",
+            "NOPAW"
         ]
     ]
 }

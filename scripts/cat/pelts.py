@@ -145,11 +145,8 @@ class Pelt:
     for sprite_list in sprites.SCAR_DATA["sprite_list"]:
         general_scars.extend(sprite_list)
 
-    missing_part_scars = []
-    for sprite_list in sprites.SCAR_MISSING_PART_DATA["sprite_list"]:
-        missing_part_scars.extend(sprite_list)
-
-    all_scars = general_scars + missing_part_scars
+    # JAYFIX
+    all_scars = general_scars.copy()
 
     # ACCESSORIES
     # make sure to add plural and singular forms of new accs to accessories.en.json so that they will display nicely
