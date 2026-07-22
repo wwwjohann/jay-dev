@@ -530,7 +530,7 @@
             "any"
         ],
         "frequency": 4,
-        "event_text": "m_c spent the day tending to the dens and might have worked a bit too hard — {PRONOUN/m_c/poss} joints are now quite sore.",
+        "event_text": "m_c spent the day tending to the dens and might have worked a bit too hard. {PRONOUN/m_c/poss/CAP} joints are now quite sore.",
         "m_c": {
             "age": [
                 "adolescent",
@@ -1624,7 +1624,7 @@
             "any"
         ],
         "frequency": 1,
-        "event_text": "m_c survived a vicious eagle attack — with the claw marks to prove it!",
+        "event_text": "m_c survived a vicious eagle attack with the claw marks to prove it!",
         "m_c": {
             "status": [
                 "kitten",
@@ -4193,8 +4193,7 @@
                 "troublesome",
                 "insecure",
                 "lonesome",
-                "nervous",
-                "sneaky"
+                "nervous"
             ]
         },
         "injury": [
@@ -5414,7 +5413,6 @@
                 "insecure",
                 "careful",
                 "calm",
-                "sneaky",
                 "strange"
             ]
         },
@@ -5457,7 +5455,6 @@
                 "insecure",
                 "careful",
                 "calm",
-                "sneaky",
                 "strange"
             ]
         },
@@ -6052,7 +6049,7 @@
             "newleaf"
         ],
         "frequency": 4,
-        "event_text": "m_c found a patch of flowering catmint! No one else is around, so {PRONOUN/m_c/subject} {VERB/m_c/bend/bends} down and {VERB/m_c/take/takes} a big bite- — Yowch! A bee! {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} home with a swollen face...",
+        "event_text": "m_c found a patch of flowering catmint! No one else is around, so {PRONOUN/m_c/subject} {VERB/m_c/bend/bends} down and {VERB/m_c/take/takes} a big bite. Yowch! A bee! {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} home with a swollen face...",
         "m_c": {
             "age": [
                 "any"
@@ -8447,7 +8444,7 @@
         "m_c": {
             "status": ["leader", "deputy", "warrior"],
             "skill": ["-FIGHTER,1"],
-            "trait": ["nervous", "shameless", "insecure", "cunning", "sneaky", "childish"]
+            "trait": ["nervous", "shameless", "insecure", "cunning", "childish"]
         },
         "injury": [
             {
@@ -9146,8 +9143,7 @@
                 "fierce",
                 "insecure",
                 "grumpy",
-                "shameless",
-                "sneaky"
+                "shameless"
             ]
         },
                 "injury": [
@@ -9586,6 +9582,118 @@
         }
     ],
     "future_event": []
+},
+{
+    "event_id": "gen_injury_leaderpunish",
+    "location": [
+        "any"
+    ],
+    "season": [
+        "any"
+    ],
+    "sub_type": [],
+    "tags": [],
+    "frequency": 2,
+    "event_text": "After a Clanmate challenges {PRONOUN/m_c/object}, m_c commands r_c to help {PRONOUN/m_c/object} punish the protesting cat. r_c ends up hurt, but m_c feels {PRONOUN/m_c/subject} can trust r_c more.",
+    "new_accessory": [],
+    "m_c": {
+        "status": [
+            "leader"
+        ],
+        "trait": [
+            "bloodthirsty",
+            "vengeful",
+            "fierce"
+        ]
+    },
+    "r_c": {
+        "status": [
+            "warrior",
+            "deputy"
+        ]
+    },
+    "injury": [
+        {
+            "cats": [
+                "r_c"
+            ],
+            "injuries": [
+                "battle_injury"
+            ],
+            "scars": [
+                "ONE",
+                "TWO",
+                "HINDLEG",
+                "FACE",
+                "SNOUT",
+                "CHEEK",
+                "BACK",
+                "CATBITE"
+            ]
+        }
+    ],
+    "history": [
+        {
+            "cats": [
+                "r_c"
+            ],
+            "scar": "Got a scar while punishing a Clanmate in the name of m_c.",
+            "death": "died from {PRONOUN/m_c/poss} injuries after m_c ordered {PRONOUN/m_c/object} to punish a Clanmate."
+        }
+        
+    ],
+    "relationships": [
+        {
+            "cats_from": [
+                "m_c"
+            ],
+            "cats_to": [
+                "r_c"
+            ],
+            "mutual": false,
+            "values": [
+                "comfort",
+                "trust"
+            ],
+            "amount": 10,
+            "log": {
+                "cats_from": "cat_from felt like {PRONOUN/cat_from/poss} could trust cat_to after {PRONOUN/cat_to/subject} followed orders to punish a Clanmate."
+            }
+        },
+        {
+            "cats_from": [
+                "r_c"
+            ],
+            "cats_to": [
+                "m_c"
+            ],
+            "mutual": false,
+            "values": [
+                "like"
+            ],
+            "amount": 5,
+            "log": {
+                "cats_from": "cat_from was glad that cat_to trusted {PRONOUN/cat_from/object} to take {PRONOUN/cat_to/poss} side."
+            }
+        },
+        {
+            "cats_from": [
+                "r_c"
+            ],
+            "cats_to": [
+                "m_c"
+            ],
+            "mutual": false,
+            "values": [
+                "trust",
+                "comfort"
+            ],
+            "amount": -5,
+            "log": {
+                "cats_from": "cat_from grew worried that cat_to viewed {PRONOUN/cat_from/object} as something to be used after being ordered to punish a Clanmate."
+            }
+        }
+    ]
 }
 ]
 
