@@ -295,9 +295,8 @@ def generate_sprite(
             new_sprite.blit(sprites.sprites["lineart_df" + cat_sprite], (0, 0))
         elif dead:
             new_sprite.blit(sprites.sprites["lineart_sc" + cat_sprite], (0, 0))
-        # draw skin and scars
-        blendmode = pygame.BLEND_RGBA_MIN
 
+        # draw skin and scars
         sprite_name = f"{sprites.SKIN_DATA['spritesheet']}{cat.pelt.skin}{cat_sprite}"
         new_sprite.blit(
             sprites.sprites[sprite_name],
@@ -307,6 +306,8 @@ def generate_sprite(
         if not scars_hidden:
             for scar in cat.pelt.scars:
                 sprite_name = f"{sprites.SCAR_DATA['spritesheet']}{scar}{cat_sprite}"
+
+                # apply scars
                 new_sprite.blit(
                     _recolor_lineart(
                         sprites.sprites[sprite_name],
@@ -360,6 +361,15 @@ def generate_sprite(
                                 ),
                                 (0, 0),
                             )
+
+        # now remove the GREEN from the sprite
+        # check every pixel. if it's green, replace with transparent
+        width, height = new_sprite.get_size()
+        for x in range(width):
+            for y in range(height):
+                current_colour = new_sprite.get_at((x, y))
+                if current_colour == pygame.Color(0, 255, 0):
+                    new_sprite.set_at((x, y), (0, 0, 0, 0))
 
         # Apply fading fog
         if (
