@@ -141,12 +141,9 @@ class Pelt:
 
     # SCARS
     # bite scars by @wood pank on discord
-    general_scars = []
+    all_scars = []
     for sprite_list in sprites.SCAR_DATA["sprite_list"]:
-        general_scars.extend(sprite_list)
-
-    # JAYFIX
-    all_scars = general_scars.copy()
+        all_scars.extend(sprite_list)
 
     # ACCESSORIES
     # make sure to add plural and singular forms of new accs to accessories.en.json so that they will display nicely
@@ -909,7 +906,7 @@ class Pelt:
             scar_choice = random.randint(0, 15)  # 6.67%
 
         if scar_choice == 1:
-            self.scars = (*self.scars, choice(Pelt.general_scars))
+            self.scars = (*self.scars, choice(Pelt.all_scars))
 
         if "NOTAIL" in self.scars and "HALFTAIL" in self.scars:
             self.scars = tuple(scar for scar in self.scars if scar != "HALFTAIL")
