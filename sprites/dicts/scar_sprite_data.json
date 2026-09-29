@@ -1,5 +1,8 @@
 {
-    "spritesheet": "scars",
+    "spritesheet": [
+        "scars",
+        "scars_masks"
+    ],
     "sprite_list": [
         [
             "ONE",
