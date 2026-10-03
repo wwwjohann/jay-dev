@@ -1,0 +1,10 @@
+[
+    {
+        "event_id": "gen_malnourished_on_recovery",
+        "strings": [
+            "Is finally feeling full again",
+            "Is happy to be no longer hungry",
+            "Finally has some energy back"
+        ]
+    }
+]

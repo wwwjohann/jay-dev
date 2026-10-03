@@ -1,0 +1,34 @@
+[
+    {
+        "event_id": "gen_on_recovery",
+        "strings": [
+            "Is happy to be healthy again",
+            "Is feeling much better",
+            "Is finally out of {PRONOUN/m_c/poss} nest!",
+            "Feels better than ever",
+            "Is missing being pampered in the medicine den"
+        ]
+    },
+    {
+        "event_id": "med_gen_on_recovery",
+        "strings": [
+            "Is happy to no longer be {PRONOUN/m_c/poss} own patient"
+        ]
+    },
+    {
+        "event_id": "nervous_gen_on_recovery",
+        "strings": [
+            "Wonders if {PRONOUN/m_c/subject} should take another moon to rest and recover, just to be safe",
+            "Stays in the medicine den an extra night to be sure {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} completely recovered"
+        ],
+        "involved_cats": {
+            "m_c": {
+                "stat": {
+                    "trait": [
+                        "nervous"
+                    ]
+                }
+            }
+        }
+    }
+]

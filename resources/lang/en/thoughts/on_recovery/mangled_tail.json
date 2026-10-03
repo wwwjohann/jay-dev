@@ -1,0 +1,23 @@
+[
+    {
+        "event_id": "gen_mangled_tail_on_recovery",
+        "strings": [
+            "Lashes {PRONOUN/m_c/poss} newly-healed tail triumphantly",
+            "Is grateful that their {PRONOUN/m_c/poss} has fully healed",
+            "Carefully grooms {PRONOUN/m_c/poss} tail"
+        ]
+    },
+    {
+        "event_id": "training_mangled_tail_on_recovery",
+        "strings": [
+            "Makes sure to protect {PRONOUN/m_c/poss} tail while training"
+        ],
+        "involved_cats": {
+            "m_c": {
+                "status": [
+                    "warrior", "deputy", "apprentice"
+                ]
+            }
+        }
+    }
+]

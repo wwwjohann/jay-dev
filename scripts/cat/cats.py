@@ -1246,10 +1246,11 @@ class Cat:
         if self.status.rank.is_any_apprentice_rank():
             self.update_mentor()
 
-    def assign_thought(self, thought_type: CatThought = None):
+    def assign_thought(self, thought_type: CatThought = None, recovered_condition: str = None):
         """
         Assigns next thought type to be displayed on cat's profile.
         :param thought_type: Indicate what type of thought should be generated
+        :param recovered_condition: The condition the cat just recovered from if the thought type is ON_RECOVERY
         """
         # reset current thought
         self.thought = None

@@ -7,7 +7,7 @@ import ujson
 import logging
 
 from scripts.cat.cats import Cat
-from scripts.cat.enums import CatAge, CatRank
+from scripts.cat.enums import CatAge, CatRank, CatThought
 from scripts.clan_package.settings import get_clan_setting
 from scripts.clan_resources.freshkill import (
     FRESHKILL_ACTIVE,
@@ -38,6 +38,7 @@ from scripts.game_structure import game
 from scripts.game_structure.localization import load_lang_resource
 from scripts.events_module.text_adjust import event_text_adjust, get_leader_life_notice
 from scripts.clan_package.get_clan_cats import find_alive_cats_with_rank
+from scripts.events_module.thoughts.generate_thoughts import get_new_thought
 
 logger = logging.getLogger(__name__)
 
@@ -660,6 +661,8 @@ class Condition_Events:
                             cat.permanent_condition[condition]["complication"] = None
                 cat.healed_condition = False
 
+                get_new_thought(cat, CatThought.ON_RECOVERY, other_cat=None, recovered_condition=illness)
+
                 # move to next illness, the cat can't get a risk from an illness that has healed
                 continue
 
@@ -796,6 +799,8 @@ class Condition_Events:
                 cat.history.remove_possible_history(injury)
                 cat.injuries.pop(injury)
                 cat.healed_condition = False
+
+                get_new_thought(cat, CatThought.ON_RECOVERY, other_cat=None, recovered_condition=injury)
 
                 # try to give a permanent condition based on healed injury and new scar if any
                 condition_got = Condition_Events.handle_permanent_conditions(

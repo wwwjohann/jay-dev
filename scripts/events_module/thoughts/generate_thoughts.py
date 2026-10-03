@@ -17,13 +17,14 @@ used_thoughts = set()
 
 
 def get_new_thought(
-    main_cat: Cat, thought_type: CatThought = None, other_cat: Cat = None
+    main_cat: Cat, thought_type: CatThought = None, other_cat: Cat = None, recovered_condition: str = None
 ):
     """
     Generates a thought for the cat, which displays on their profile.
     :param main_cat: The cat object receiving the thought.
     :param thought_type: Indicate what type of thought should be generated
     :param other_cat: If a specific other cat should be included, include their object here.
+    :param recovered_condition: If the cat is recovering from a condition, include it here.
     """
     # default thought type
     if not thought_type:
@@ -52,7 +53,7 @@ def get_new_thought(
 
     # get chosen thought
     chosen_thought = _new_thought(
-        thought_type, main_cat, other_cat, other_clan_id=other_clan_id
+        thought_type, main_cat, other_cat, other_clan_id=other_clan_id, recovered_condition=recovered_condition
     )
 
     chosen_thought = event_text_adjust(
@@ -68,7 +69,7 @@ def get_new_thought(
 
 
 def _new_thought(
-    thought_type: CatThought, main_cat: Cat, other_cat: Cat, other_clan_id: str
+    thought_type: CatThought, main_cat: Cat, other_cat: Cat, other_clan_id: str, recovered_condition: str = None
 ):
     """
     Finds a thought appropriate for the given args.
@@ -102,7 +103,7 @@ def _new_thought(
                 other_clan = None
 
             chosen_thought_group = None
-            allowed_thoughts = _load_allowed_thoughts(thought_type, main_cat)
+            allowed_thoughts = _load_allowed_thoughts(thought_type, main_cat, recovered_condition)
             while not chosen_thought_group:
                 unused = [
                     t for t in allowed_thoughts if t.event_id not in used_thoughts
@@ -204,7 +205,7 @@ def _get_other_cat_for_thought(
     return other_cat
 
 
-def _load_allowed_thoughts(thought_type: CatThought, main_cat: Cat):
+def _load_allowed_thoughts(thought_type: CatThought, main_cat: Cat, recovered_condition: str = None):
     """
     Loads and returns thoughts appropriate for the given cat.
     """
@@ -283,6 +284,15 @@ def _load_allowed_thoughts(thought_type: CatThought, main_cat: Cat):
             thoughts = load_text_pool_events(f"{new_path}/clancat.json")
         else:
             thoughts = load_text_pool_events(f"{new_path}/outsider.json")
+
+    elif thought_type == CatThought.ON_RECOVERY:
+        try:
+            thoughts = load_text_pool_events(f"{new_path}/{recovered_condition.replace(' ', '_')}.json")
+            if not thoughts:
+                thoughts = load_text_pool_events(f"{new_path}/general.json")
+        except FileNotFoundError:
+            thoughts = load_text_pool_events(f"{new_path}/general.json")
+
 
     # thought types with just a general path
     elif thought_type in (
