@@ -1628,7 +1628,7 @@
         "all_lives"
     ],
     "poi": {
-        "tags": ["fall_risk"]
+        "tags": ["danger:fall_risk"]
     },
     "frequency": 4,
     "event_text": "m_c went missing and was found dead at the bottom of POI.",
@@ -1657,7 +1657,7 @@
         ],
         "tags": [],
         "poi": {
-            "tags": ["tainted"]
+            "tags": ["danger:tainted"]
         },
         "frequency": 4,
         "event_text": "m_c went missing and was found dead near POI, a strange odor rising from {PRONOUN/m_c/poss} body.",
@@ -1686,7 +1686,7 @@
         ],
         "tags": [],
         "poi": {
-            "tags": ["unstable"]
+            "tags": ["danger:unstable"]
         },
         "frequency": 4,
         "event_text": "m_c was killed when part of POI collapsed.",
@@ -11058,9 +11058,7 @@
             "any"
         ],
         "poi": {
-            "tags": [
-                "fall_risk"
-            ],
+            "tags": ["danger:fall_risk"],
             "category": "terrain"
         },
         "frequency": 3,
@@ -11096,9 +11094,7 @@
             "all_lives"
         ],
         "poi": {
-            "tags": [
-                "fall_risk"
-            ],
+            "tags": ["danger:fall_risk"],
             "category": "terrain"
         },
         "frequency": 2,
