@@ -491,7 +491,9 @@
         "accessory",
         "ceremony",
         "transition",
-        "mediator"
+        "mediator",
+        "other_clan_birth_reaction",
+        "other_clan_death_reaction"
       ],
       "title": "EventSubtype",
       "type": "string"

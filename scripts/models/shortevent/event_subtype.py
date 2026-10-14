@@ -15,3 +15,7 @@ class EventSubtype(Enum):
     ceremony = "ceremony"
     transition = "transition"
     mediator = "mediator"
+
+    # CGWAR
+    other_clan_birth_reaction = "other_clan_birth_reaction"
+    other_clan_death_reaction = "other_clan_death_reaction"
