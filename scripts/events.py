@@ -2305,6 +2305,8 @@ def reputation_based_events(
             possible_cats.append(game.clan.leader)
         for cat in find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_APPRENTICE, CatRank.MEDICINE_CAT]):
             possible_cats.append(cat)
+        if not possible_cats:
+            return
         main_cat = random.choice(possible_cats)
 
     create_short_event(
