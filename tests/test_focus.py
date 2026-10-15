@@ -140,31 +140,31 @@ class TestFocus(unittest.TestCase):
         self.change_setting("sabotage_other_clans")
 
         game.clan.clans_in_focus = [game.clan.all_other_clans[0].name]
-        starting_relation = game.clan.all_other_clans[0].relations
+        starting_relation = game.clan.all_other_clans[0].relations[game.clan.group_ID]
         amount = get_config("focus.other_clans.relation")
         focus.handle_focus()
 
         self.assertEqual(
-            starting_relation - amount, game.clan.all_other_clans[0].relations
+            starting_relation - amount, game.clan.all_other_clans[0].relations[game.clan.group_ID]
         )
 
     def test_aid_other_clans(self):
         self.change_setting("aid_other_clans")
 
         game.clan.clans_in_focus = [game.clan.all_other_clans[0].name]
-        starting_relation = game.clan.all_other_clans[0].relations
+        starting_relation = game.clan.all_other_clans[0].relations[game.clan.group_ID]
         amount = get_config("focus.other_clans.relation")
         focus.handle_focus()
 
         self.assertEqual(
-            starting_relation + amount, game.clan.all_other_clans[0].relations
+            starting_relation + amount, game.clan.all_other_clans[0].relations[game.clan.group_ID]
         )
 
     def test_raid_other_clans(self):
         self.change_setting("raid_other_clans")
         game.clan.clans_in_focus = [game.clan.all_other_clans[0].name]
 
-        starting_relation = game.clan.all_other_clans[0].relations
+        starting_relation = game.clan.all_other_clans[0].relations[game.clan.group_ID]
         amount_rel = get_config("focus.raid_other_clans.relation")
 
         beginning_herbs = game.clan.herb_supply.total
@@ -176,7 +176,7 @@ class TestFocus(unittest.TestCase):
 
         self.assertEqual(
             starting_relation + amount_rel,
-            game.clan.all_other_clans[0].relations,
+            game.clan.all_other_clans[0].relations[game.clan.group_ID],
             msg=f"Clan relationship did not change as expected",
         )
         self.assertEqual(

@@ -677,7 +677,7 @@ class TestOutcomeExecution(unittest.TestCase):
             fail_outcomes=[{"strings": ["test"]}],
         )
         other_clan = OtherClan()
-        starting_clan_rep = other_clan.relations
+        starting_clan_rep = other_clan.relations[game.clan.group_ID]
         starting_outsider_rep = game.clan.reputation
 
         set_up_patrol_class_w_event(self.patrol_class, [war1, app1], [patrol])
@@ -692,7 +692,7 @@ class TestOutcomeExecution(unittest.TestCase):
         )
 
         self.assertTrue(
-            starting_clan_rep + 2 == other_clan.relations
+            starting_clan_rep + 2 == other_clan.relations[game.clan.group_ID]
             and starting_outsider_rep + 2 == game.clan.reputation,
             msg=f"Clan and outsider reputation should be increased.",
         )
