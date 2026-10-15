@@ -26,5 +26,8 @@
     ],
     "other_clan_lost": [
         "Rumors reach the Clan that m_c, reported missing from o_c_n, has died recently."
+    ],
+    "tribecat": [
+        "Rumors reach the Clan that m_c, a cat from the Tribe, has died recently."
     ]
 }
